@@ -87,7 +87,7 @@ while True:
     z_coords = z_coords[idx]
 
     plt.scatter(x_coords, y_coords, s=0.1, color='silver')
-    plt.scatter(shaft_position[0], shaft_position[1], s=10, color='green', label='shaft')
+    plt.scatter(shaft_position[0], shaft_position[1], s=10, color='green', label='pivot')
     plt.scatter(0., 0., s=10, color='black', label='camera')
     # plt.scatter(x_coords_z, y_coords_z, s=1, color='black')
     num_points = 0
