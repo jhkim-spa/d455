@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pyrealsense2 as rs
 import argparse
+import cv2
 
 from utils import plot_box, count_points_in_box
 
@@ -44,6 +45,7 @@ while True:
     filtered = spat_filter.process(filtered)
     filtered = temp_filter.process(filtered)
     depth_frame = filtered
+    color_image = np.asanyarray(color_frame.get_data())
 
     pc.map_to(color_frame)
 
@@ -111,4 +113,11 @@ while True:
         plt.xlabel('WARNING!!', fontsize=20)
     plt.pause(0.05)
     plt.cla()
+
+    cv2.namedWindow('RGB', cv2.WINDOW_NORMAL)
+    new_width = int(1280 * 0.5)
+    new_height = int(800 * 0.5)
+    cv2.resizeWindow('RGB', new_width, new_height)
+    cv2.imshow('RGB', color_image)
+    key = cv2.waitKey(1)
 

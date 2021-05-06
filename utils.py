@@ -14,7 +14,7 @@ def plot_box(point, width, height):
     ax.add_patch(box)
 
 def count_points_in_box(x_coords, y_coords, z_coords,
-    point, width, height, z_coord, offset=1):
+    point, width, height, z_coord, offset=0.02):
     idx = np.where((((point[0] - width / 2) < x_coords) &\
                     ((point[0] + width / 2) > x_coords) &\
                     ((point[1] - height / 2) < y_coords) &\
